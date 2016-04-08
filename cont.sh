@@ -29,13 +29,21 @@
 
 cont=0
 destinoFile="pruebas_pasadas.txt"
+destinoFile2="pruebas_pasadas2.txt"
 
 # borramos el archivo que ya este creado
 if [ -f "$destinoFile" ] ; then
 	# if create the file
 	rm "$destinoFile"
-    touch "$destinoFile"
 fi
+touch "$destinoFile"
+
+# borramos el archivo que ya este creado
+if [ -f "$destinoFile2" ] ; then
+	# if create the file
+	rm "$destinoFile2"
+fi
+touch "$destinoFile2"
 
 
 for i in {0..60..1}
@@ -58,7 +66,12 @@ for i in {0..60..1}
 				((cont++))
 		fi
 		
- done
- 
- echo $cont
+done
+
+echo $cont
+echo "$cont" >> "$destinoFile2"
+cat "$destinoFile" >> "$destinoFile2"
+rm "$destinoFile"
+mv "$destinoFile2" "$destinoFile"
+
  
