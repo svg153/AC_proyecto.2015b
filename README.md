@@ -4,18 +4,19 @@ AC_proyecto.2015b
 Pruebas del proyecto de Arquitectura de Computadores (AC) del Grado de Ingeniería Informática de la Escuela Técnica Superior de Ingenieros Informáticos (ETISIINF, antigua Facultad de Informática, FI) de la Universidad Politécnica de Madrid (UPM).
 
 ## Info
-* Titulación:	Grado en Informática. Plan 09.
-* Año:			  2014-2015
-* Materia:		Arquitectura de Computadores
-* Semestre:		2 Semestre. Mañana
-* Ejercicio:	Proyecto E/S Interrupciones
-* Archivo:		codigo_pruebas.s
+| Infomacion: |  |   
+| ----------- | --------
+| Titulación  | Grado de Ingeniería Informática. Plan 09.
+| Año         | 2014-2015
+| Materia     | Arquitectura de Computadores
+| Semestre    | 2 Semestre. Mañana
+| Proyecto    | Proyecto E/S Interrupciones
+| Archivo     | codigo_pruebas.s
 
 Información del proyecto:
 *	Toda la información sobre este proyecto se encuentra en la [página del proyecto de la asignatura][1]
 
-> **Nota:**
-> Aqui teneis la [sintaxis del m68kasm para Gedit][4], para poder ver mejor el codigo.
+> **Nota:** Aqui teneis la [sintaxis del m68kasm para Gedit][4], para poder ver mejor el codigo.
 
 ## Autores
 *	Diego Fernandez, [@diegofpb][2]
