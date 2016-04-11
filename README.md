@@ -1,7 +1,7 @@
 AC_proyecto.2015b
 =================
 
-Pruebas del proyecto de Arquitectura de Computadores (AC) de la Escuela Técnica Superior de Ingenieros Informáticos (ETISIINF, antigua Facultad de Informática, FI) de la Universidad Politécnica de Madrid (UPM).
+Pruebas del proyecto de Arquitectura de Computadores (AC) del Grado de Ingeniería Informática de la Escuela Técnica Superior de Ingenieros Informáticos (ETISIINF, antigua Facultad de Informática, FI) de la Universidad Politécnica de Madrid (UPM).
 
 ## Info
 * Titulación:	Grado en Informática. Plan 09.
