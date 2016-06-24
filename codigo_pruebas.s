@@ -52,6 +52,74 @@ MAL2:
 			BREAK						
 			RTS	
 * --------------------------------------------------------------------> CheckSOL
+
+
+* --------------------------------------------------------------------> LEECAR2
+* AUX. LEECAR2 (buffer)
+*	Objetivo:
+*		Leer un caracter del buffer circular designado por el parametro 
+*		entrante "buffer"
+*
+*	Parámetros:
+*		buffer
+*				Se pasara en A0
+*
+*	Valor de retorno:
+*		D0		
+*				- 0 = Todo OK
+*		D1		
+*				- numero de 0 a 255 caracter del buffer
+*
+LEECAR2:
+	*** NO ES UN BUFFER INTERNO
+
+		* Limpiamos el D1
+ 		EOR.L		D1,D1							
+
+		* Leemos el ASCII del Buffer pasado en A2
+		MOVE.B		(A2),D1		* Extraccion de Ascii en D0. (De 0 a 255 DEC / 0 a FF HEX)
+		
+		* Aumentamos la dir del Buff pasado
+		ADD.L		#$1,A2				
+		
+		* Ponemos a D0 = 0 para indicar OK
+ 		EOR.L		D0,D0		
+		
+		RTS
+* --------------------------------------------------------------------> LEECAR2
+
+
+* --------------------------------------------------------------------> ESCCAR2
+* AUX. ESCCAR2 (buffer)
+*	Objetivo:
+*		Leer un caracter del buffer circular designado por el parametro 
+*		entrante "buffer"
+*
+*	Parametros:
+*		buffer
+*				Se pasara en A0
+*				Nos fijamos en los dos bits menos significativos 
+*
+*	Valor de retorno:
+*		D0		
+*				- 0 = Todo OK
+*		D1		
+*				- numero de 0 a 255 caracter del buffer
+*
+ESCCAR2:
+	*** NO ES UN BUFFER INTERNO
+		
+		* Guardamos el ASCII pasado en D1 al Buffer pasado
+		MOVE.B		D1,(A2)					* Inserccion del Ascii al Buffer seleccionado. (De 0 a 255)
+		
+		* Aumentamos la dir del Buff pasado.
+		ADD.L		#$1,A2				
+		
+		* Ponemos a D0 = 0 para indicar OK
+		EOR.L		D0,D0					
+		
+		RTS
+* --------------------------------------------------------------------> ESCCAR2
 		
 
 *** NOTA: abecedario ASCII en Hex
@@ -82,39 +150,41 @@ MAL2:
 
 *SCILETRA	EQU		$00000061		* Caracter 'a' [hex].
 *SCFLETRA	EQU		$00000074		* Caracter 't' [hex].
-*SCBUCSCA	EQU		25				* Repetir bucle 25 veces [dec].
-*SCCHARFI	EQU		1				* Quiero que esta prueba contenga al final
-									* del bucle un 0d. Indico 1 [dec].
+*SCBUCSCA	EQU		25			* Repetir bucle 25 veces [dec].
+*SCCHARFI	EQU		1			* Quiero que esta prueba contenga al final
+								* del bucle un 0d. Indico 1 [dec].
 *SCSPEEDR	EQU		%00000000		* Velocidad 50bps [bin].
 *SCSDESCR	EQU		$0				* Valor 0 = Linea A [hex}.
 *SCTAMMAX	EQU		$4444			* Tamanyo maximo de la linea [hex].
 *SCCHAROK	EQU		$000001f5		* Valor que deberia volver SCAN [hex].
 
+dirBUFF 	EQU		$4000           	* El BUFF que a las pruebas
+
 SCILETRA	DC.L		$00000061		* Caracter 'a' [hex].
 SCFLETRA	DC.L		$00000074		* Caracter 't' [hex].
-SCBUCSCA	DC.L		25				* Repetir bucle 25 veces [dec].
-SCCHARFI	DC.L		1				* Quiero que esta prueba contenga al final
-										* del bucle un 0d. Indico 1 [dec].
-SCLinCFI	DC.L		1				* Quiero que esta prueba contenga al final
-										* del bucle un 0d. Indico 1 [dec].
-SCNLin		DC.L		0				* Numero de Lineas iguales que se quieren enviar (pr34es_int)
+SCBUCSCA	DC.L		25			* Repetir bucle 25 veces [dec].
+SCCHARFI	DC.L		1			* Quiero que esta prueba contenga al final
+								* del bucle un 0d. Indico 1 [dec].
+SCLinCFI	DC.L		1			* Quiero que esta prueba contenga al final
+								* del bucle un 0d. Indico 1 [dec].
+SCNLin		DC.L		0			* Numero de Lineas iguales que se quieren enviar (pr34es_int)
 SCSPEEDR	DC.B		%00000000		* Velocidad 50bps [bin].
-SCSDESCR	DC.L		$0				* Valor 0 = Linea A [hex}.
+SCSDESCR	DC.L		$0			* Valor 0 = Linea A [hex}.
 SCdir		DC.L		$4e20			* dir de la linea A de SCAN
 SCTAMMAX	DC.L		$4444			* Tamanyo maximo de la linea [hex].
 SCCHAROK	DC.L		$000001f5		* Valor que deberia volver SCAN [hex].
 
-SCRES2L		DC.L		0				* Guardamos los result de cada linea en SCAN
+SCRES2L		DC.L		0			* Guardamos los result de cada linea en SCAN
 
 
 *** PRINT
 
-PRNLin		DC.L		1				* Numero de Lineas iguales que se quieren enviar (pr34es_int)
-PRSDESCR    DC.L		$0				* Valor 0 = Linea A [hex}.
-PRTAMMAX    DC.L		$4444			* Tamanyo maximo de la linea [hex].
+PRNLin		DC.L		1			* Numero de Lineas iguales que se quieren enviar (pr34es_int)
+PRSDESCR	DC.L		$0			* Valor 0 = Linea A [hex}.
+PRTAMMAX    	DC.L		$4444			* Tamanyo maximo de la linea [hex].
 PRCHAROK	DC.L		$00000000		* Valor que deberia volver PRINT [hex].
 
-PRRES2L		DC.L		0				* Guardamos los result de cada linea en SCAN
+PRRES2L		DC.L		0			* Guardamos los result de cada linea en SCAN
 
 * ----------------------------------------------------------> DATOS PARA SCAN
 
