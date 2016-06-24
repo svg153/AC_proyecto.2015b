@@ -32,6 +32,7 @@ Información del proyecto:
 ## Uso de las pruebas
 * Copiamos del fichero *codigo_pruebas.s* al fichero del proyecto *es_int.s*, lo siguiente:
  * Copiar la subrutina 'CheckSOL:' ya que es la que comprueba si la solución, que nosotros sabemos que tiene que salir, se corresponde con la que sale.
+ * Copiar las subrutinas 'LEECAR2:' y 'ESCCAR2:' ya que las usan las pruebas para leer o escribir caracteres.
  * Copiar el conjunto de datos que se encuentran englobados entre dos comentarios de:
  ```
  * ----------------------------------------------------------> DATOS PARA SCAN
