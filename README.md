@@ -56,8 +56,8 @@ INICIO:
     MOVE.L   #ILLEGAL_IN,16       * Illegal instruction handler
     MOVE.L   #PRIV_VIOLT,32       * Privilege violation handler
     
-  *** PERMITIMOS LAS INT
-    MOVE.W  #$2000,SR             * Permitir interrupciones
+  *** PERMITIMOS LAS INT -> DESCOMENTAR SOLO CUANDO estemos con la RTI
+   * MOVE.W  #$2000,SR            * Permitir interrupciones
   
   **** Llamadas a PP del corrector
     BSR   pr45RTI    
