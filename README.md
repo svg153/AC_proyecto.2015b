@@ -31,20 +31,20 @@ Información del proyecto:
 
 ## Uso de las pruebas
 * Copiamos del fichero *codigo_pruebas.s* al fichero del proyecto *es_int.s*, lo siguiente:
-  * Copiar la subrutina 'CheckSOL:' ya que es la que comprueba si la solución, que nosotros sabemos que tiene que salir, se corresponde con la que sale.
-  * Copiar el conjunto de datos que se encuentran englobados entre dos comentarios de:
-```
-* ----------------------------------------------------------> DATOS PARA SCAN
-```
-  * La prueba o pruebas que necesitemos. Teniendo en cuenta que han podido cambiar respecto a cuando se creó este fichero.
-  * **CUIDADO:** con los nombres de las etiquetas, puede que *es_int.s* no compile si hay etiquetas iguales.
-  * En el fichero *es_int.s*, deberíamos tener una subrutina que haga de 'main', normalmente llamada 'INICIO:' o 'START:', la cual se define al principio del código:
+ * Copiar la subrutina 'CheckSOL:' ya que es la que comprueba si la solución, que nosotros sabemos que tiene que salir, se corresponde con la que sale.
+ * Copiar el conjunto de datos que se encuentran englobados entre dos comentarios de:
+ ```
+ * ----------------------------------------------------------> DATOS PARA SCAN
+ ```
+ * Copiar la prueba o pruebas que necesitemos. Teniendo en cuenta que han podido cambiar respecto a cuando se creó este fichero.
+ * **CUIDADO:** con los nombres de las etiquetas, puede que *es_int.s* no compile si hay etiquetas iguales.
+* En el fichero *es_int.s*, deberíamos tener una subrutina que haga de 'main', normalmente llamada 'INICIO:' o 'START:', la cual se define al principio del código:
 ```assembly
     ORG     $0
   	DC.L    $8000           		* Pila
   	DC.L    INICIO          		* PC
 ```
-  * Esa subrutina 'INICIO:' debería tener esta formar:
+ * Esa subrutina 'INICIO:' debería tener esta formar:
 ```assembly
 INICIO: 
     
