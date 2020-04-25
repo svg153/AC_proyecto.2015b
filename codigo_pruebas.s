@@ -563,6 +563,9 @@ pr35RTI:
 * -----------------------------------------------------------------> pr38es_int	
 * PPAL: pr38es_int
 *
+* 	Estado:
+*		Se quedó a medias, faltan cosas... 
+*
 * 	Descripcion: 	
 *		PRINT - PUERTO A - 1 Linea - 1 Chart
 *		a + 0d (Retorno de Carro)
