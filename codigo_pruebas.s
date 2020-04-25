@@ -25,8 +25,9 @@
 * -----------------------------------------------------------------------------
 
 
+
 ********************************************************************************
-* ----------------------------------------------------------------------> PPALS 	
+* ----------------------------------------------------------------------> AUX
 ********************************************************************************
 
 * --------------------------------------------------------------------> CheckSOL
@@ -120,7 +121,59 @@ ESCCAR2:
 		
 		RTS
 * --------------------------------------------------------------------> ESCCAR2
+
+* --------------------------------------------------------------------> LINEA
+* Subrutina. LINEA (buffer)
+*	Objetivo:
+*		Contar el numero de caracteres hasta el salto del linea que hay en el buffer circular
+*		designado por el parametro entrante "buffer"
+*	ParÃ¡metros:
+*		D0
+*				Se pasara codigo del buffer del que queremos sacar 
+*				Nos fijamos en los dos bits menos significativos 
+*					* 00 = Buffer Recepcion SCAN Linea A
+*					* 01 = Buffer Recepcion SCAN Linea B
+*					* 10 = Buffer Transmision PRINT Linea A
+*					* 11 = Buffer Transmision PRINT Linea B
+*	Valor de retorno:
+*		D0		
+*				- numero de 0 a 2000 caracteres que hay en la linea del buffer, incluyendo el ASCIIFIN
+*
+*
+* -- Registros: utilizados y que tiene cada uno
+* D0	contador de charts
+* D1
+* D2	chart del buffer
+* ..
+* A0 	Marco Inicio del Buffer en cuestion
+* A1	Marco Fin del Buffer en cuestion
+* A2
+* A3	puntero de Inserccion
+* A4	Puntero de Extraccion
+* A5	PTEMP
+* A6	marco de pila 
+* A7	puntero de pila
+* --
+*
+
+LINEA:
+	* @TODO: Implementar esta funcion en el codigo
+
+FinLin:
+	* Volvemos al programa llamante.
+  	RTS	
 		
+* --------------------------------------------------------------------> LINEA
+
+********************************************************************************
+* ----------------------------------------------------------------------> AUX
+********************************************************************************
+
+
+
+********************************************************************************
+* ----------------------------------------------------------------------> PPALS 	
+********************************************************************************
 
 *** NOTA: abecedario ASCII en Hex
 * Letra 	a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z
@@ -566,7 +619,7 @@ pr35RTI:
 * 	Estado:
 *		Se quedó a medias, faltan cosas... 
 *
-* 	Descripcion: 	
+* 	Descripcion:
 *		PRINT - PUERTO A - 1 Linea - 1 Chart
 *		a + 0d (Retorno de Carro)
 *		1000 BPS velocidad de escritura de la persona en la linea
