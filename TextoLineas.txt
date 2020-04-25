@@ -1,5 +1,5 @@
-Instruciones
-Tenemos que hacer un "P=NN; grep -A 1 pr${P}es_int TextoLineas.txt" del archivo y seleccionar por terminal lo que queremos, luego con el boton de la rueda del raton los seleccionamos y vemos como se habra copiado en el final del terminal, ahi ya podemos ir a la linea correspondiente, selecioanrla para escribir y con el mismo boton de la rueda del raton se pegará, y en el caso de que tenga un enter, puedes damos al enter del teclado.
+Instrucciones
+Tenemos que hacer un "P=NN; grep -A 1 pr${P}es_int TextoLineas.txt" del archivo y seleccionar por terminal lo que queremos, luego con el boton de la rueda del raton los seleccionamos y vemos como se habra copiado en el final del terminal, ahi ya podemos ir a la linea correspondiente, seleccionarla para escribir y con el mismo boton de la rueda del raton se pegará, y en el caso de que tenga un enter, puedes damos al enter del teclado.
 
 Texto lineas
 ...
